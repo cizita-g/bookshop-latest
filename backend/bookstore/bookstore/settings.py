@@ -11,7 +11,7 @@ SECRET_KEY = "django-insecure-pt89c31j$#ijvf@g=_ax@9ifkavp(2@11st9-sgah)fg)fgff+
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["bookshop-latest.onrender.com"]
+ALLOWED_HOSTS = ["bookshop-latest.onrender.com","http://127.0.0.1" ]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
