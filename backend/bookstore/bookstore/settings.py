@@ -11,7 +11,7 @@ SECRET_KEY = "django-insecure-pt89c31j$#ijvf@g=_ax@9ifkavp(2@11st9-sgah)fg)fgff+
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["bookshop-latest.onrender.com","http://127.0.0.1" ]
+ALLOWED_HOSTS = ["bookshop-latest.onrender.com","127.0.0.1", "localhost" ]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -26,6 +26,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -82,7 +83,10 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
+# Static files settings
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Collect static files here
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
