@@ -29,10 +29,16 @@ const HeroSection = ({ books }) => {
                 <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
                     <div className="relative flex gap-4">
                         {books.slice(0, 3).map((book, index) => (
+                            // <img
+                            //     key={index}
+                            //     // src={`http://127.0.0.1:8000/media/${book.cover_image}`}
+                            //     src={book.cover_image}
+                            //     alt={book.title}
+                            //     className={`w-36 h-52 object-cover shadow-lg ${index === 1 ? 'border-4 border-red-500' : ''}`}
+                            // />
                             <img
                                 key={index}
-                                // src={`http://127.0.0.1:8000/media/${book.cover_image}`}
-                                src={`http://127.0.0.1:8000/media/${book.cover_image}`}
+                                src={`https://bookshop-latest.onrender.com/media/${book.cover_image}`} 
                                 alt={book.title}
                                 className={`w-36 h-52 object-cover shadow-lg ${index === 1 ? 'border-4 border-red-500' : ''}`}
                             />

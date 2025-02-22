@@ -43,7 +43,8 @@ const Cart = () => {
                             {cart.map((book) => (
                                 <li key={book.id} className="flex justify-between items-center py-4">
                                     <div className="flex items-center gap-4">
-                                        <img src={book.cover_image || "https://bookshop-latest.onrender.com/media/cover_image.jpg"} alt={book.title} className="w-24 h-32 object-cover rounded-md" />
+
+                                        <img src={`https://bookshop-latest.onrender.com/media/${book.cover_image}`}  alt={book.title} className="w-24 h-32 object-cover rounded-md" />
                                         {/* <img src={book.cover_image || "http://127.0.0.1:8000/media/cover_image.jpg"} alt={book.title} className="w-24 h-32 object-cover rounded-md" /> */}
                                         <div>
                                             <h3 className="font-semibold text-gray-900">{book.title}</h3>

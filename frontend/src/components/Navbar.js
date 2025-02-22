@@ -19,7 +19,6 @@ const Navbar = () => {
     const handleLogout = async () => {
         try {
             await axios.get("https://bookshop-latest.onrender.com/logout/");
-            // await axios.get("http://127.0.0.1:8000/logout/");
             sessionStorage.removeItem("user");
             setUser(null);
             router.push("/auth/login");
@@ -29,9 +28,13 @@ const Navbar = () => {
     };
 
     const handleScroll = (id) => {
+        if (id === "home") {
+            router.push("/");
+            return;
+        }
         const section = document.getElementById(id);
         if (section) {
-            const offset = 80; // Adjust based on navbar height
+            const offset = 80;
             const elementPosition = section.getBoundingClientRect().top + window.scrollY;
             const offsetPosition = elementPosition - offset;
             window.scrollTo({ top: offsetPosition, behavior: "smooth" });
@@ -41,32 +44,35 @@ const Navbar = () => {
     return (
         <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 h-20 flex items-center">
             <div className="flex justify-between items-center px-8 py-4 w-full">
-                {/* Logo */}
-                <div className="text-gray-800 text-2xl font-bold flex items-center">
+                {/* Logo - Redirects to Home */}
+                <div
+                    className="text-gray-800 text-2xl font-bold flex items-center cursor-pointer"
+                    onClick={() => router.push("/")}
+                >
                     <span className="text-yellow-500 text-3xl mr-2">📖</span>
                     <span>Book Sphere</span>
                 </div>
 
-                {/* Navigation Items */}
-                <div className="flex justify-center gap-6">
-                    {[ 
-                        { label: "Home", id: "home" },
-                        { label: "Featured", id: "featured" },
-                        { label: "Category", id: "category" },
-                        { label: "Explore", id: "explore" },
-                        { label: "Blogs", id: "blogs" },
-                    ].map((item) => (
-                        <button
-                            key={item.id}
-                            onClick={() => handleScroll(item.id)}
-                            className={`px-4 py-2 text-black font-semibold transition-colors rounded-md ${
-                                router.pathname === "/" && window.location.hash === `#${item.id}` ? "bg-[#f6bd60]" : "hover:bg-gray-200"
-                            }`}
-                        >
-                            {item.label}
-                        </button>
-                    ))}
-                </div>
+                {/* Navigation Items - Shown only on Home Page */}
+                {router.pathname === "/" && (
+                    <div className="flex justify-center gap-6">
+                        {[ 
+                            { label: "Home", id: "home" },
+                            { label: "Featured", id: "featured" },
+                            { label: "Category", id: "category" },
+                            { label: "Explore", id: "explore" },
+                            { label: "Blogs", id: "blogs" },
+                        ].map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => handleScroll(item.id)}
+                                className="px-4 py-2 text-black font-semibold transition-colors rounded-md hover:bg-gray-200"
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+                    </div>
+                )}
 
                 {/* Icons & Authentication */}
                 <div className="flex items-center gap-6">
