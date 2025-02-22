@@ -31,6 +31,7 @@ const HeroSection = ({ books }) => {
                         {books.slice(0, 3).map((book, index) => (
                             <img
                                 key={index}
+                                // src={`http://127.0.0.1:8000/media/${book.cover_image}`}
                                 src={`http://127.0.0.1:8000/media/${book.cover_image}`}
                                 alt={book.title}
                                 className={`w-36 h-52 object-cover shadow-lg ${index === 1 ? 'border-4 border-red-500' : ''}`}

@@ -41,7 +41,8 @@ const CategorySection = () => {
             <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 {categories.map(({ category, book }) => (
                     <div key={category} className="cursor-pointer" onClick={() => handleCategoryClick(category)}>
-                        <img src={`http://127.0.0.1:8000/media/${book.cover_image}`} alt={book.title} className="w-48 h-64 object-cover mx-auto rounded-lg" />
+                        {/* <img src={`http://127.0.0.1:8000/media/${book.cover_image}`} alt={book.title} className="w-48 h-64 object-cover mx-auto rounded-lg" /> */}
+                        <img src={`https://bookshop-latest.onrender.com/media/${book.cover_image}`} alt={book.title} className="w-48 h-64 object-cover mx-auto rounded-lg" />
                         <p className="text-purple-600 font-semibold mt-2">{category}</p>
                     </div>
                 ))}

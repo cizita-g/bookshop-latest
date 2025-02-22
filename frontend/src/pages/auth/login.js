@@ -1,42 +1,3 @@
-// import { useState } from "react";
-// import { useRouter } from "next/router";
-// import axios from "axios";
-
-// const Login = () => {
-//     const [username, setUsername] = useState("");
-//     const [password, setPassword] = useState("");
-//     const router = useRouter();
-
-//     const handleLogin = async (e) => {
-//         e.preventDefault();
-//         try {
-//             const response = await axios.post("http://127.0.0.1:8000/login/", {
-//                 username,
-//                 password,
-//             });
-
-//             sessionStorage.setItem("user", response.data.user);
-//             alert("Login successful!");
-//             router.push("/");
-//         } catch (error) {
-//             alert("Login failed: " + error.response?.data?.error || "Unknown error");
-//         }
-//     };
-
-//     return (
-//         <div>
-//             <h2>Login</h2>
-//             <form onSubmit={handleLogin}>
-//                 <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />
-//                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-//                 <button type="submit">Login</button>
-//             </form>
-//         </div>
-//     );
-// };
-
-// export default Login;
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -56,10 +17,14 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://127.0.0.1:8000/login/", {
+            const response = await axios.post("https://bookshop-latest.onrender.com/login/", {
                 username,
                 password,
             });
+            // const response = await axios.post("http://127.0.0.1:8000/login/", {
+            //     username,
+            //     password,
+            // });
 
             sessionStorage.setItem("user", response.data.user);
             alert("Login successful!");

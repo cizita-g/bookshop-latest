@@ -5,7 +5,8 @@ import { useCart } from "../../context/CartContext";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://bookshop-latest.onrender.com";
+// const API_URL = "http://127.0.0.1:8000";
 
 const BookDetails = () => {
     const router = useRouter();

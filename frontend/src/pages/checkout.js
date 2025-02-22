@@ -29,7 +29,8 @@ const Checkout = () => {
                 return;
             }
 
-            const response = await axios.post("http://127.0.0.1:8000/create-checkout-session/", { cart });
+            const response = await axios.post("https://bookshop-latest.onrender.com/create-checkout-session/", { cart });
+            // const response = await axios.post("http://127.0.0.1:8000/create-checkout-session/", { cart });
 
             if (response.data.error) {
                 alert("Error processing payment: " + response.data.error);
@@ -57,7 +58,7 @@ const Checkout = () => {
         <div className="bg-white min-h-screen">
             <Navbar />
             <div className="max-w-4xl mx-auto py-10 px-6 mt-20">
-                <h1 className="text-3xl font-bold text-center mb-6">Checkout</h1>
+                <h1 className="text-3xl text-black font-bold text-center mb-6">Checkout</h1>
 
                 {cart.length === 0 ? (
                     <p className="text-gray-600 text-center">Your cart is empty.</p>

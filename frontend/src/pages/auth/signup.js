@@ -1,88 +1,3 @@
-// import { useState } from "react";
-// import { useRouter } from "next/router";
-// import axios from "axios";
-
-// const Signup = () => {
-//     const [username, setUsername] = useState("");
-//     const [email, setEmail] = useState("");
-//     const [password, setPassword] = useState("");
-//     const router = useRouter();
-
-//     const handleSignup = async (e) => {
-//         e.preventDefault();
-//         try {
-//             await axios.post("http://127.0.0.1:8000/register/", {
-//                 username,
-//                 email,
-//                 password,
-//             });
-//             alert("Signup successful! Please login.");
-//             router.push("/auth/login");
-//         } catch (error) {
-//             alert("Signup failed: " + error.response?.data?.error || "Unknown error");
-//         }
-//     };
-
-//     return (
-//         <div className="flex items-center justify-center h-screen bg-gray-100">
-//             <div className="bg-white shadow-lg rounded-lg p-8 w-96">
-//                 <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">SIGN UP</h2>
-//                 <form onSubmit={handleSignup}>
-//                     <label className="block text-gray-700 font-semibold mb-1">Username</label>
-//                     <input
-//                         type="text"
-//                         placeholder="Enter your username"
-//                         className="text-black w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f6bd60]"
-//                         value={username}
-//                         onChange={(e) => setUsername(e.target.value)}
-//                         required
-//                     />
-                    
-//                     <label className="block text-gray-700 font-semibold mb-1">Email</label>
-//                     <input
-//                         type="email"
-//                         placeholder="Enter your email"
-//                         className="text-black w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f6bd60]"
-//                         value={email}
-//                         onChange={(e) => setEmail(e.target.value)}
-//                         required
-//                     />
-                    
-//                     <label className="block text-gray-700 font-semibold mb-1">Password</label>
-//                     <input
-//                         type="password"
-//                         placeholder="Enter your password"
-//                         className="text-black w-full p-3 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#f6bd60]"
-//                         value={password}
-//                         onChange={(e) => setPassword(e.target.value)}
-//                         required
-//                     />
-                    
-//                     <button
-//                         type="submit"
-//                         className="w-full bg-[#f6bd60] text-white font-semibold py-3 rounded-md hover:bg-[#e0a84c] transition"
-//                     >
-//                         Sign Up
-//                     </button>
-//                 </form>
-                
-//                 <div className="text-center mt-4 text-gray-600">
-//                     <p>
-//                         Already have an account? 
-//                         <span 
-//                             className="text-[#f6bd60] cursor-pointer" 
-//                             onClick={() => router.push("/auth/login")}
-//                         > Login
-//                         </span>
-//                     </p>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Signup;
-
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -112,9 +27,8 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
         if (!validateInputs()) return; // Only validate on form submission
-
         try {
-            await axios.post("http://127.0.0.1:8000/register/", {
+            await axios.post("https://bookshop-latest.onrender.com/register/", {
                 username,
                 email,
                 password,
@@ -124,6 +38,18 @@ const Signup = () => {
         } catch (error) {
             alert("Signup failed: " + (error.response?.data?.error || "Unknown error"));
         }
+
+        // try {
+        //     await axios.post("http://127.0.0.1:8000/register/", {
+        //         username,
+        //         email,
+        //         password,
+        //     });
+        //     alert("Signup successful! Please login.");
+        //     router.push("/auth/login");
+        // } catch (error) {
+        //     alert("Signup failed: " + (error.response?.data?.error || "Unknown error"));
+        // }
     };
 
     return (

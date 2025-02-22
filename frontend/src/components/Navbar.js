@@ -18,7 +18,8 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.get("http://127.0.0.1:8000/logout/");
+            await axios.get("https://bookshop-latest.onrender.com/logout/");
+            // await axios.get("http://127.0.0.1:8000/logout/");
             sessionStorage.removeItem("user");
             setUser(null);
             router.push("/auth/login");
