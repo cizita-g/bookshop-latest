@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
         });
     };
 
-    // ✅ Increase quantity
+    // Increase quantity
     const increaseQuantity = (bookId) => {
         setCart((prevCart) =>
             prevCart.map((item) =>
@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
         );
     };
 
-    // ✅ Decrease quantity (if quantity is 1, remove item)
+    //  Decrease quantity (if quantity is 1, remove item)
     const decreaseQuantity = (bookId) => {
         setCart((prevCart) =>
             prevCart
@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
         );
     };
 
-    // ✅ Remove item from cart
+    //  Remove item from cart
     const removeFromCart = (bookId) => {
         setCart((prevCart) => prevCart.filter((book) => book.id !== bookId));
     };
